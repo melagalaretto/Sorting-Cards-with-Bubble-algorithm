@@ -7,7 +7,9 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {};
 let simbolo = ["♣", "♥", "♦", "♠"];
-let numero = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+let numero = ["Ⓐ", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+let misCartas = [];
+let x = 0;
 
 var btnClick = document.querySelector("#btn1");
 btnClick.addEventListener("click", function(e) {
@@ -49,6 +51,37 @@ function dibujarCarta() {
     simb1.style.color = "red";
     simb2.style.color = "red";
   }
+  misCartas[x] = [numero[numeroInd], simbolo[simboloIndex]];
+  x++;
+  console.log("miArrayOriginal");
+  console.log(misCartas);
 
   return contenedor;
 }
+
+var btn2 = document.querySelector("#btn2");
+btn2.addEventListener("click", function(e) {
+  e.preventDefault();
+  let cartasOrdenadas = [];
+  cartasOrdenadas = bubbleSort(misCartas);
+  console.log("Mi array ordenado");
+  console.log(cartasOrdenadas);
+});
+
+const bubbleSort = arr => {
+  let wall = arr.length - 1; //we start the wall at the end of the array
+  while (wall > 0) {
+    let index = 0;
+    while (index < wall) {
+      //compare the adjacent positions, if the right one is bigger, we have to swap
+      if (arr[index] > arr[index + 1]) {
+        let aux = arr[index];
+        arr[index] = arr[index + 1];
+        arr[index + 1] = aux;
+      }
+      index++;
+    }
+    wall--; //decrease the wall for optimization
+  }
+  return arr;
+};
