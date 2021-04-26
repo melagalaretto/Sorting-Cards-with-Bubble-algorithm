@@ -71,3 +71,10 @@ body {
   transform: rotate(180deg);
   margin-right: 15px;
 }
+
+#ordenC {
+  text-align: center;
+  margin-top: 40px;
+  background-color: white;
+  text-shadow: 1px 1px red;
+}
