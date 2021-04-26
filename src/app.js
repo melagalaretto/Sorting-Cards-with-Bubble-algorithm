@@ -89,24 +89,6 @@ btn2.addEventListener("click", function(e) {
   }
 });
 
-// ORDEN DE CARTAS CON SELECT
-var btn3 = document.querySelector("#btn3");
-btn3.addEventListener("click", function(e) {
-  e.preventDefault();
-  let divOrdenadasSelect = document.querySelector("#ordenCard1");
-  let cartasOrdenadasSelect = [misCartas];
-  cartasOrdenadasSelect = bubbleSort(misCartas);
-  console.log("Mi array ordenado");
-  console.log(cartasOrdenadasSelect);
-  for (let i = 0; i < cartasOrdenadasSelect.length; i++) {
-    let cartas = dibujarCarta(
-      cartasOrdenadasSelect[i][0],
-      cartasOrdenadasSelect[i][1]
-    );
-    divOrdenadasSelect.appendChild(cartas);
-  }
-});
-
 //metodo Sort
 const bubbleSort = arr => {
   let wall = arr.length - 1; //we start the wall at the end of the array
@@ -122,22 +104,6 @@ const bubbleSort = arr => {
       index++;
     }
     wall--; //decrease the wall for optimization
-  }
-  return arr;
-};
-
-const selectSort = arr => {
-  let min = 0;
-  /* Ordenamos los numeros */
-  while (min < arr.length) {
-    for (let i = min + 1; i < arr.length; i++) {
-      if (arr[min][0] > arr[i][0]) {
-        let aux = arr[min];
-        arr[min] = arr[i];
-        arr[i] = aux;
-      }
-    }
-    min++;
   }
   return arr;
 };
